@@ -34,13 +34,13 @@ unsigned boolean_op(unsigned x, unsigned y, unsigned(*op)(unsigned, unsigned)){
 
 int main()
 {
- //lambda vs function pointers
+ //lambda vs functors vs function pointers
  unsigned a = 0x12345678;
  unsigned b = 0x87654321;
 
  std::cout << "Inital values: a=0x12345678 b=0x87654321"<<std::endl;
 
- unsigned result = boolean_op(a, b, AND);
+ unsigned result = boolean_op(a, b, AND); //Example of a function pointer. The oldest feature (from C) but is the least flexible
  std::cout << "AND = 0x" <<std::hex <<result<< std::endl;
 
  result = boolean_op(a, b, OR);
@@ -57,6 +57,8 @@ int main()
 
  result = boolean_op(a, b, XNOR);
  std::cout << "XNOR = 0x" <<std::hex <<result<< std::endl;
+
+ //TO:DO functors and lambda
 
  return 0;
 }
