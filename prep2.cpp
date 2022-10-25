@@ -67,6 +67,19 @@ public:
     }
 };
 
+class Yankee_White{
+public:
+    virtual void brief() = 0;//This is a pure virutal function, making this an abstract class that cannot be instantiated
+};
+
+class read_on : public Yankee_White{
+public:
+    void brief(){
+        std::cout<<"Brief: Pure virtual function in Yankee_White implemented in derived class"<<std::endl;
+        std::cout<<""<<std::endl;
+    }
+};
+
 
 int main() {
   //Public: Members can be accessed by base, derived, and outside classes
@@ -118,6 +131,13 @@ int main() {
   //c4.secret = 2; Illegal
   //c4.top_secret = 2; Illegal
   std::cout<<""<<std::endl;
+
+  std::cout<<"Abstract class Yankee_White has a virtual function called brief."<<std::endl;
+  std::cout<<"For this reason we cannot instantiate this class, though we can use a pointer to call the virtual function from its derived class read_on"<<std::endl;
+  Yankee_White* yw;//cannot instantiate an abstract class but we can use a pointer to it
+  read_on r;//create a derived class from Yankee_White
+  yw = &r;
+  yw->brief();//call the virtual function, which class the implementation in the derived class
 
   return 0;
 }

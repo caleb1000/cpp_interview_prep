@@ -10,6 +10,7 @@ public:
             std::cout<<"BASE CLASS: missile name "<<name<<std::endl;
         }
         virtual void launch(){
+            //When a function is declared as a virtual function in a base class, all derived classes have that same function as virtual
             std::cout<<"BASE CLASS: launch "<<name<<std::endl;
         }
         virtual ~missile() {} //add virtual destructor, even thought it doesn't get used it is needed to allow the base class missile to be dynamically case to other derived classes
