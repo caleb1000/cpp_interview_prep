@@ -57,7 +57,7 @@ public:
 class s_sap : public s{
 public:
     void try_inc(){
-        //because s data members are protected, inherited classes can still modify the values
+        //because s's data members are protected, inherited classes can still modify the values directly
         confidential++;
         secret++;
         //top_secret++; illegal, only base class can modify
