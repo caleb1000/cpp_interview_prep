@@ -7,14 +7,17 @@ class clearance {
     void print_clearance(){
         std::cout<<"Base: Confidential = "<<confidential<<" Secret = "<<secret<<" Top Secret = "<<top_secret<<std::endl;
     }
+    void inc_s(){
+        secret++;
+    }
     void inc_ts(){
         top_secret++;
     }
 
   protected:
-    int secret = 1;
+      int secret = 1;
   private:
-    int top_secret = 1;
+      int top_secret = 1;
 };
 
 class c : public clearance{
@@ -74,6 +77,8 @@ int main() {
   clearance c1;
   c1.print_clearance();//print original values
   c1.confidential = 2;//modify public value
+  c1.print_clearance();
+  c1.inc_s();
   c1.print_clearance();
   c1.inc_ts();
   c1.print_clearance();
