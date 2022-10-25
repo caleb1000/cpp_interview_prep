@@ -37,7 +37,7 @@ int main()
  //lambda vs functors vs function pointers
  unsigned a = 0x12345678;
  unsigned b = 0x87654321;
-
+ std::cout << "Example of function pointers being used to support generic boolean operation function:" <<std::endl;
  std::cout << "Inital values: a=0x12345678 b=0x87654321"<<std::endl;
 
  unsigned result = boolean_op(a, b, AND); //Example of a function pointer. The oldest feature (from C) but is the least flexible
