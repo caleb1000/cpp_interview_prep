@@ -1,27 +1,27 @@
 #include <iostream>
 #include <string>
 
-class missle
+class missile
 {
 public:
 	std::string name;
 
         void print_name(std::string name){
-            std::cout<<"BASE CLASS: missle name "<<name<<std::endl;
+            std::cout<<"BASE CLASS: missile name "<<name<<std::endl;
         }
-        virtual ~missle() {} //add virtual destructor, even thought it doesn't get used it is needed to allow the base class missle to be dynamically case to other derived classes
+        virtual ~missile() {} //add virtual destructor, even thought it doesn't get used it is needed to allow the base class missile to be dynamically case to other derived classes
 };
 
-class lockheedmartin : public missle
+class lockheedmartin : public missile
 {
 public:
 	//use the base class data member name
         int range;
         void print_name(std::string name){
-            std::cout<<"Lockheedmartin: missle name "<<name<<std::endl;
+            std::cout<<"Lockheedmartin: missile name "<<name<<std::endl;
         }
         void print_range(int range){
-	    std::cout<<"Lockheedmartin: missle max km range = "<<range<<std::endl;
+	    std::cout<<"Lockheedmartin: missile max km range = "<<range<<std::endl;
         }
 
         static void print_static(){
@@ -29,17 +29,17 @@ public:
         }
 };
 
-class  raytheon : public missle
+class  raytheon : public missile
 {
 public:
 	std::string feature;
         std::string name;
         void print_name(std::string name){
-            std::cout<<"Raytheon: missle name "<<name<<std::endl;
+            std::cout<<"Raytheon: missile name "<<name<<std::endl;
         }
 
         void print_feature(std::string feature){
-            std::cout<<"Raytheon: missle feature "<<feature<<std::endl;
+            std::cout<<"Raytheon: missile feature "<<feature<<std::endl;
         }
 
         void print_name(){
@@ -50,9 +50,9 @@ public:
 
 int main(){
 
-     missle m1;
+     missile m1;
      raytheon m2;
-     missle* mp1 = &m2;//base class pointer to a child object
+     missile* mp1 = &m2;//base class pointer to a child object
      //create 2 objects, one parent (base) class, one child
 
      std::cout<<"Setting base class object m1's name to rocket"<<std::endl;
@@ -77,12 +77,12 @@ int main(){
      raytheon* mp2 = dynamic_cast<raytheon*>(mp1);
      mp2->print_name(mp2->name);
      std::cout<<"Call base class function with base class data member using the dynamically casted pointer"<<std::endl;
-     mp2->missle::print_name(mp2->missle::name);
+     mp2->missile::print_name(mp2->missile::name);
      std::cout<<"Calling overloaded function for print_name that has no args"<<std::endl;
      mp2->print_name();
 
      lockheedmartin m3; //create derived class, this time uses base class name member
-     missle* mp3 = &m3;
+     missile* mp3 = &m3;
      std::cout<<"Create derived class m3 and create mp3 that is a base class pointer to m3. Set m3 derived class name to PrSM and range to 499km"<<std::endl;
      m3.name = "PrSM";
      m3.range = 499;
