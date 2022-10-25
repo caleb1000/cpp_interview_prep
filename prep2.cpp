@@ -48,12 +48,23 @@ public:
         secret++;//private
         //top_secret++; illegal, only base class can modify
     }
+    friend class ts_sap;
 };
 
 class ts_sci : public ts{
 public:
     void try_inc(){
         //confidential++; illegal, data members of ts are all private and can only be modified by that class, even though confidential started as public in the original base class it changed to private in ts
+    }
+};
+
+class ts_sap : public ts{
+public:
+    void try_inc(){
+        //Because ts_sap is a friend of ts we can access both its private and protected members
+        confidential++;
+        secret++;
+        //top_secret++; illegal, only base class can modify
     }
 };
 
