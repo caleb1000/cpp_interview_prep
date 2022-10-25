@@ -6,3 +6,6 @@ prep.cpp output </br>
 
 prep2.cpp output </br> 
 ![image](https://user-images.githubusercontent.com/30327564/197841177-5d13bafd-c337-4c0e-bdb1-32101693a4ec.png)
+
+prep3.cpp output </br>
+![image](https://user-images.githubusercontent.com/30327564/197857677-467d78e0-b75d-4c92-8793-58d1cf15da31.png)
