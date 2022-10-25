@@ -9,6 +9,9 @@ public:
         void print_name(std::string name){
             std::cout<<"BASE CLASS: missile name "<<name<<std::endl;
         }
+        virtual void launch(){
+            std::cout<<"BASE CLASS: launch "<<name<<std::endl;
+        }
         virtual ~missile() {} //add virtual destructor, even thought it doesn't get used it is needed to allow the base class missile to be dynamically case to other derived classes
 };
 
@@ -25,7 +28,11 @@ public:
         }
 
         static void print_static(){
+            //static function that can be called without instance of class
             std::cout<<"Lockheedmartin: Static function call (no object needed) "<<std::endl;
+        }
+        void launch(){
+            std::cout<<"Lockheedmartin: Launch "<<name<<" with max range " <<range<<"km"<<std::endl;
         }
 };
 
@@ -44,6 +51,10 @@ public:
 
         void print_name(){
             std::cout<<"Raytheon: overloaded print function"<<std::endl;
+        }
+
+        void launch(){
+            std::cout<<"Raytheon: Launch "<<name<<" with feature "<<feature<<std::endl;
         }
 
 };
@@ -94,4 +105,13 @@ int main(){
      std::cout<<"Calling static member function without an object and with an object"<<std::endl;
      lockheedmartin::print_static();//can call static function without object
      m3.print_static();//can also call static function from an object
+
+     std::cout<<"Launch missiles in order m1, m2, m3, mp1, mp2, mp3"<<std::endl;
+     m1.launch();
+     m2.launch();
+     m3.launch();
+     mp1->launch();//notice that mp1 is a missle pointer but still calls the derived class function as launch is a virtual function
+     mp2->launch();
+     mp3->launch();
+
 }
