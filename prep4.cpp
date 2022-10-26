@@ -65,6 +65,7 @@ public:
 int main()
 {
     // -> has higher operator precedence than *
+    std::cout<<"Create objects a1 and a3, but only assign a1 values directly"<<std::endl;
     airplane a1,a3;
     a1.name = "B2";
     a1.speed = 628;
@@ -78,12 +79,16 @@ int main()
         *temp_str = temp_string.at(x);
         temp_str++;
     }
+    std::cout<<"Create a copy a2 from object a1"<<std::endl;
     airplane a2 = a1; //copy constructor called
     //The copy constructor is only called once, on the first creation of an object
-    std::cout<<"a1 arms = "<<a1.arms<<std::endl;
-    a2.name = "Test";
-    a2 = a1; //assignment constructor called
+    std::cout<<"Assign a3's values by copying a1's"<<std::endl;
     a3 = a2; //assignment constructor called
+    *(a2.arms) = 'c';
+    std::cout<<"Modify a2's char buffer to show it is a deep copy rather than a shallow copy of the pointer"<<std::endl;
+    std::cout<<"Final planes arms values:"<<std::endl;
+
+    std::cout<<"a1 arms = "<<a1.arms<<std::endl;
     std::cout<<"a2 arms= "<<a2.arms<<std::endl;
     std::cout<<"a3 arms= "<<a3.arms<<std::endl;
     return 0;
