@@ -12,3 +12,7 @@ prep2.cpp output </br>
 Lambda vs Function pointers vs Functor </br> 
 prep3.cpp output </br>
 ![image](https://user-images.githubusercontent.com/30327564/197857677-467d78e0-b75d-4c92-8793-58d1cf15da31.png)
+
+Big 3 </br>
+prep4.cpp output </br>
+![image](https://user-images.githubusercontent.com/30327564/197954318-90b62cc3-f982-4d6c-89c9-93987feafe80.png)
