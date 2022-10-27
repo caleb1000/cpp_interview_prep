@@ -18,6 +18,9 @@ public:
 
 };
 
+template <typename T> bool equal(T a, T b){
+    return (a == b) ? true : false;
+}
 
 unsigned XOR(unsigned x , unsigned y)
 {
@@ -53,7 +56,7 @@ unsigned boolean_op(unsigned x, unsigned y, unsigned(*op)(unsigned, unsigned)){
 
 int main()
 {
- 	//lambda vs functors vs function pointers
+ 	//lambda vs functors vs function pointers vs templates
  	unsigned a = 0x12345678;
  	unsigned b = 0x87654321;
  	std::cout << "Example of function pointers being used to support generic boolean operation function:" <<std::endl;
@@ -92,8 +95,17 @@ int main()
      		std::cout << "Output value = 0x" <<std::hex << ~n << std::endl;
      		return ~n;
  	};
-
- 	result = invert(0x7FFF0000);
+        unsigned test = 0x7FFF0000;
+ 	result = invert(test);
  	std::cout << "Result from lambda = " << std::hex << result << std::endl;
+
+        std::cout << "Example of template being used to compare if two values are equal" << std::endl;
+        std::cout << "Compare if 0x" << result << " is equal to 0x"<< test << ": "<< equal(result, test) << std::endl;//compare result of invert to original value
+        result = ~result;
+        std::cout << "Compare if 0x" << result << " is equal to 0x"<< test << ": "<< equal(result, test) << std::endl;//compare inverted value of the inverted original value to the original value
+        std::cout << "Compare if 33.47 is equal to -33.47: "<< equal(33.47, -33.47) << std::endl;//compare signed type to see if template works on different data types
+        std::cout << "Compare if 33.47 is equal to 33.47: "<< equal(33.47, 33.47) << std::endl;//compare signed type to see if template works on different data types
+
+
  	return 0;
 }
