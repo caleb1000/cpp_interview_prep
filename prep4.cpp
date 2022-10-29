@@ -71,14 +71,15 @@ int main()
     a1.speed = 628;
     a1.length = 34;
     a1.flying = true;
-    a1.arms_number = 4;
+    a1.arms_number = 5;//4 chars and 1 null byte
     a1.arms = (char*) malloc(a1.arms_number*sizeof(char));//allocate 4 chars
     std::string temp_string = "bomb";
     char* temp_str = a1.arms;
-    for(int x = 0; x<a1.arms_number; x++){
+    for(int x = 0; x<a1.arms_number-1; x++){
         *temp_str = temp_string.at(x);
         temp_str++;
     }
+    *temp_str = '\0';//added final null byte terminator to str
     std::cout<<"Create a copy a2 from object a1"<<std::endl;
     airplane a2 = a1; //copy constructor called
     //The copy constructor is only called once, on the first creation of an object
@@ -89,7 +90,7 @@ int main()
     std::cout<<"Final planes arms values:"<<std::endl;
 
     std::cout<<"a1 arms = "<<a1.arms<<std::endl;
-    std::cout<<"a2 arms= "<<a2.arms<<std::endl;
-    std::cout<<"a3 arms= "<<a3.arms<<std::endl;
+    std::cout<<"a2 arms = "<<a2.arms<<std::endl;
+    std::cout<<"a3 arms = "<<a3.arms<<std::endl;
     return 0;
 }
